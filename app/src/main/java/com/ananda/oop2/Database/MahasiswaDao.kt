@@ -6,19 +6,15 @@ import com.ananda.oop2.Database.Mahasiswa
 
 @Dao
 interface MahasiswaDao {
-    @Query("SELECT * FROM mahasiswa")
-    fun getAll(): LiveData<List<Mahasiswa>>
+    @Insert
+    suspend fun addMahasiswa(mahasiswa: Mahasiswa)
 
-    @Query("SELECT * FROM mahasiswa WHERE nim IN (:userIds)")
-    fun loadAllByIds(userIds: IntArray): List<Mahasiswa>
-
-    @Query("SELECT * FROM mahasiswa WHERE nama LIKE :nama AND " +
-            "prodi LIKE :prodi LIMIT 1")
-    fun findByName(nama: String, prodi: String): Mahasiswa
-
-    @Insert(onConflict =  OnConflictStrategy.IGNORE)
-    suspend fun insert(mahasiswa: Mahasiswa)
+    @Update
+    suspend fun updateMahasiswa(mahasiswa: Mahasiswa)
 
     @Delete
-    fun delete(mahasiswa: Mahasiswa)
+    suspend fun deleteMahasiswa(mahasiswa: Mahasiswa)
+
+    @Query("SELECT * FROM mahasiswa")
+    suspend fun getAllMahasiswa(): List<Mahasiswa>
 }
