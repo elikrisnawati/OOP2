@@ -1,14 +1,13 @@
-package com.ananda.oop2
+package com.ananda.oop2.Database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
+import com.ananda.oop2.Database.Mahasiswa
 
 @Dao
 interface MahasiswaDao {
     @Query("SELECT * FROM mahasiswa")
-    fun getAll(): List<Mahasiswa>
+    fun getAll(): LiveData<List<Mahasiswa>>
 
     @Query("SELECT * FROM mahasiswa WHERE nim IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<Mahasiswa>
@@ -17,8 +16,8 @@ interface MahasiswaDao {
             "prodi LIKE :prodi LIMIT 1")
     fun findByName(nama: String, prodi: String): Mahasiswa
 
-    @Insert
-    fun insertAll(vararg mahasiswa: Mahasiswa)
+    @Insert(onConflict =  OnConflictStrategy.IGNORE)
+    suspend fun insert(mahasiswa: Mahasiswa)
 
     @Delete
     fun delete(mahasiswa: Mahasiswa)

@@ -1,4 +1,4 @@
-package com.ananda.oop2
+package com.ananda.oop2.Database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
