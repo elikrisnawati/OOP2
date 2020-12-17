@@ -16,4 +16,7 @@ interface DosenDao {
 
     @Query("SELECT * FROM dosen")
     suspend fun getAllDosen(): List<Dosen>
+
+    @Query("SELECT * FROM dosen WHERE id=:dosen_id")
+    suspend fun getDosen(dosen_id: Int) : List<Dosen>
 }
