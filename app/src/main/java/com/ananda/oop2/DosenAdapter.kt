@@ -23,6 +23,9 @@ class DosenAdapter (private val AllDosen: ArrayList<Dosen>, private val listener
         holder.view.text_nama.setOnClickListener {
             listener.onClick(dosen)
         }
+        holder.view.icon_delete.setOnClickListener {
+            listener.onDelete(dosen)
+        }
     }
 
     class DosenViewHolder(val view: View) : RecyclerView.ViewHolder(view)
@@ -35,5 +38,6 @@ class DosenAdapter (private val AllDosen: ArrayList<Dosen>, private val listener
 
     interface OnAdapterListener {
         fun onClick(dosen: Dosen)
+        fun onDelete(dosen: Dosen)
     }
 }
