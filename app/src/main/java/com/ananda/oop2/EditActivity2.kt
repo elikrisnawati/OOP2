@@ -35,6 +35,7 @@ class EditActivity2 : AppCompatActivity() {
     }
 
     fun setupView() {
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         val intentType = intent.getIntExtra("intent_type", 0)
         when (intentType) {
             Constant.TYPE_CREATE -> {
@@ -55,5 +56,10 @@ class EditActivity2 : AppCompatActivity() {
             edit_nama2.setText( mahasiswas.nama )
             edit_prodi.setText( mahasiswas.prodi )
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }
