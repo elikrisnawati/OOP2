@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ananda.oop2.Database.Constant
+import com.ananda.oop2.Database.Dosen
 import com.ananda.oop2.Database.Mahasiswa
 import com.ananda.oop2.Database.MahasiswaRoomDatabase
 import kotlinx.android.synthetic.main.activity_mahasiswa.*
@@ -56,6 +57,10 @@ class MahasiswaActivity : AppCompatActivity() {
 
             override fun onDelete(mahasiswa: Mahasiswa) {
                 deleteDialog(mahasiswa)
+            }
+
+            override fun onUpdate(mahasiswa: Mahasiswa) {
+                intentEdit(mahasiswa.id, Constant.TYPE_UPDATE)
             }
 
         })

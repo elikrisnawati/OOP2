@@ -6,6 +6,7 @@ import android.view.View
 import com.ananda.oop2.Database.Constant
 import com.ananda.oop2.Database.Mahasiswa
 import com.ananda.oop2.Database.MahasiswaRoomDatabase
+import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.android.synthetic.main.activity_edit2.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +33,14 @@ class EditActivity2 : AppCompatActivity() {
                 finish()
             }
         }
+        button_update2.setOnClickListener{
+            CoroutineScope(Dispatchers.IO).launch {
+                db.mahasiswaDao().updateMahasiswa(
+                    Mahasiswa(mahasiswaId, Integer.parseInt(edit_nim.text.toString()), edit_nama2.text.toString(), edit_prodi.text.toString())
+                )
+                finish()
+            }
+        }
     }
 
     fun setupView() {
@@ -39,9 +48,15 @@ class EditActivity2 : AppCompatActivity() {
         val intentType = intent.getIntExtra("intent_type", 0)
         when (intentType) {
             Constant.TYPE_CREATE -> {
+                button_update2.visibility = View.GONE
 
             }
             Constant.TYPE_READ -> {
+                button_save2.visibility = View.GONE
+                button_update2.visibility = View.GONE
+                getMahasiswa()
+            }
+            Constant.TYPE_UPDATE -> {
                 button_save2.visibility = View.GONE
                 getMahasiswa()
             }
