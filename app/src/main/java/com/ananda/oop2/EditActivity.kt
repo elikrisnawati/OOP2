@@ -32,6 +32,14 @@ class EditActivity : AppCompatActivity() {
                 finish()
             }
         }
+        button_update.setOnClickListener{
+            CoroutineScope(Dispatchers.IO).launch {
+                db.dosenDao().updateDosen(
+                    Dosen (dosenId, Integer.parseInt(edit_nipy.text.toString()), edit_nama.text.toString(), edit_pengampu.text.toString()  )
+                )
+                finish()
+            }
+        }
     }
 
     fun setupView() {
@@ -39,9 +47,15 @@ class EditActivity : AppCompatActivity() {
         val intentType = intent.getIntExtra("intent_type", 0)
         when (intentType) {
             Constant.TYPE_CREATE -> {
+                button_update.visibility = View.GONE
 
             }
             Constant.TYPE_READ -> {
+                button_save.visibility = View.GONE
+                button_update.visibility = View.GONE
+                getDosen()
+            }
+            Constant.TYPE_UPDATE -> {
                 button_save.visibility = View.GONE
                 getDosen()
             }

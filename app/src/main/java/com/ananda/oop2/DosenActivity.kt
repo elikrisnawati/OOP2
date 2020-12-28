@@ -58,6 +58,10 @@ class DosenActivity : AppCompatActivity() {
                 deleteDialog(dosen)
             }
 
+            override fun onUpdate(dosen: Dosen) {
+                intentEdit(dosen.id, Constant.TYPE_UPDATE)
+            }
+
 
         })
         list_dosen.apply {

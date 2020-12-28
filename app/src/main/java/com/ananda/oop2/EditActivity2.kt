@@ -43,12 +43,12 @@ class EditActivity2 : AppCompatActivity() {
             }
             Constant.TYPE_READ -> {
                 button_save2.visibility = View.GONE
-                getDosen()
+                getMahasiswa()
             }
         }
     }
 
-    fun getDosen() {
+    fun getMahasiswa() {
         mahasiswaId = intent.getIntExtra("intent_id", 0)
         CoroutineScope(Dispatchers.IO).launch {
             val mahasiswas =  db.mahasiswaDao().getMahasiswa( mahasiswaId )[0]
