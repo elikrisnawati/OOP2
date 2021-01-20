@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "856170393183",
+    "project_id": "homework-39c9d",
+    "storage_bucket": "homework-39c9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856170393183:android:156f9fc715f4b5f00bf5ea",
+        "android_client_info": {
+          "package_name": "com.ananda.oop2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856170393183-nnus8ss9c91adi16ofk6o7e3qfv4t1lk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ananda.oop2",
+            "certificate_hash": "5c75d638f7cf6285ec1d8de14466274accfe9505"
+          }
+        },
+        {
+          "client_id": "856170393183-mg44l6h46ujg333lsof2h698q47tnjm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZs9L9OoU2TXvnQbLXxDs0pvi6giT37KQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856170393183-mg44l6h46ujg333lsof2h698q47tnjm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

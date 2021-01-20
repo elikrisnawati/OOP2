@@ -21,6 +21,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, DosenActivity::class.java)
             startActivity(intent)
         }
+
+        button_tugas.setOnClickListener{
+            val intent = Intent(this, TugasActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

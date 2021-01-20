@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MahasiswaAdapter"></activity>
+        <activity android:name=".FormTugasActivity"></activity>
+        <activity android:name=".TugasActivity" />
+        <activity android:name=".MahasiswaAdapter" />
         <activity android:name=".DosenAdapter" />
         <activity android:name=".DosenActivity" />
         <activity android:name=".MahasiswaActivity" />
